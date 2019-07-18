@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "52817480065",
+    "firebase_url": "https://myinstar-5c088.firebaseio.com",
+    "project_id": "myinstar-5c088",
+    "storage_bucket": "myinstar-5c088.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:52817480065:android:ce7b8ca4bedd3b69",
+        "android_client_info": {
+          "package_name": "com.diamong.myinstar"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "52817480065-r4r1bi4ju6rrm6ti1035j0r1jmdna410.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.diamong.myinstar",
+            "certificate_hash": "21f4a81630e501b3d8c5578a3d3afa5a67afb4c6"
+          }
+        },
+        {
+          "client_id": "52817480065-v200me8ocqcmntujgp764sqg0cc7830h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB6iXoJHTYR1wn0dBY9hBthF6NX6Pygbrg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "52817480065-v200me8ocqcmntujgp764sqg0cc7830h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

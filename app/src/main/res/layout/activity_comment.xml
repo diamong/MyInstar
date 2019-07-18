@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    tools:context=".CommentActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/comment_appbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:attr/windowBackground">
+
+        <android.support.v7.widget.Toolbar
+
+
+            android:id="@+id/comment_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/windowBackground" />
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+
+        android:id="@+id/comment_recyclerview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/bottom"
+        android:layout_below="@id/comment_appbar">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <RelativeLayout
+
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="#fff"
+        android:padding="4dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/comment_imageprofile"
+            android:layout_width="40dp"
+            android:layout_height="40dp" />
+
+        <EditText
+            android:id="@+id/comment_edittext_addcomment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_toRightOf="@id/comment_imageprofile"
+            android:background="@android:color/transparent"
+            android:hint="Add a comment"
+            android:textColor="#000" />
+
+        <TextView
+
+            android:id="@+id/comment_textview_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:text="POST"
+            android:textColor="@color/colorPrimary" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

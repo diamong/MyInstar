@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Fragment.SearchFragment">
+
+    <android.support.design.widget.AppBarLayout
+        android:background="?android:attr/windowBackground"
+        android:id="@+id/search_bar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <android.support.v7.widget.Toolbar
+            android:background="?android:attr/windowBackground"
+            android:id="@+id/search_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:src="@drawable/ic_bar_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:hint="찾기..."
+                android:background="@android:color/transparent"
+                android:id="@+id/search_edittext_search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.v7.widget.Toolbar>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_below="@id/search_bar"
+            android:id="@+id/search_recyclerview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        </android.support.v7.widget.RecyclerView>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+
+
+
+
+</RelativeLayout>

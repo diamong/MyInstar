@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/commentitem_imageview_profile"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/commentitem_textview_nickname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/commentitem_imageview_profile"
+        app:layout_constraintTop_toTopOf="@+id/commentitem_imageview_profile" />
+
+    <TextView
+        android:textColor="@color/design_default_color_primary_dark"
+        android:id="@+id/commentitem_textview_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLines="5"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/commentitem_textview_nickname"
+        app:layout_constraintTop_toBottomOf="@+id/commentitem_textview_nickname" />
+
+</android.support.constraint.ConstraintLayout>
