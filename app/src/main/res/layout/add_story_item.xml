@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="60dp"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+
+        android:layout_marginTop="5dp"
+        android:layout_gravity="center"
+        android:layout_width="50dp"
+        android:layout_height="50dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            
+            android:id="@+id/storyitem_photo"
+            android:src="@mipmap/ic_person"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentTop="true"
+            android:layout_width="45dp"
+            android:layout_height="45dp" />
+        
+        <de.hdodenhof.circleimageview.CircleImageView
+
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:id="@+id/addstoryitem_imageview_add"
+            android:src="@drawable/ic_add_story"
+            android:layout_width="20dp"
+            android:layout_height="20dp" />
+
+    </RelativeLayout>
+    <TextView
+
+        android:textSize="10sp"
+        android:layout_gravity="center"
+        android:textColor="@color/colorPrimaryDark"
+        android:id="@+id/addstoryitem_textview_addstory"
+        android:maxLines="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

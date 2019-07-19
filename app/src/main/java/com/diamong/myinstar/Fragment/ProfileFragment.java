@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.diamong.myinstar.EditProfileActivity;
 import com.diamong.myinstar.FollowersActivity;
+import com.diamong.myinstar.OptionsActivity;
 import com.diamong.myinstar.R;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -178,6 +179,14 @@ public class ProfileFragment extends Fragment {
                 Intent intent = new Intent(getContext(), FollowersActivity.class);
                 intent.putExtra("id",profileId);
                 intent.putExtra("title","following");
+                startActivity(intent);
+            }
+        });
+
+        imageOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), OptionsActivity.class);
                 startActivity(intent);
             }
         });
