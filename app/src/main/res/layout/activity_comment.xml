@@ -55,7 +55,7 @@
             android:layout_marginEnd="10dp"
             android:layout_toRightOf="@id/comment_imageprofile"
             android:background="@android:color/transparent"
-            android:hint="Add a comment"
+            android:hint="Add a text"
              />
 
         <TextView

@@ -57,7 +57,7 @@ public class SearchFragment extends Fragment {
         searchBar = view.findViewById(R.id.search_edittext_search);
 
         mUsers = new ArrayList<>();
-        userAdapter= new UserAdapter(getContext(),mUsers);
+        userAdapter= new UserAdapter(getContext(),mUsers,true);
 
         recyclerView.setAdapter(userAdapter);
 

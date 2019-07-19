@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.diamong.myinstar.CommentActivity;
+import com.diamong.myinstar.FollowersActivity;
 import com.diamong.myinstar.Fragment.PostDetailFragment;
 import com.diamong.myinstar.Fragment.ProfileFragment;
 import com.diamong.myinstar.R;
@@ -25,6 +26,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.HashMap;
 import java.util.List;
 
 import Model.Post;
@@ -128,6 +130,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                 if (viewHolder.imageLike.getTag().equals("like")) {
                     FirebaseDatabase.getInstance().getReference().child("Likes").child(post.getPostid())
                             .child(firebaseUser.getUid()).setValue(true);
+                    addNotifications(post.getPublisher(),post.getPostid());
                 } else {
                     FirebaseDatabase.getInstance().getReference().child("Likes").child(post.getPostid())
                             .child(firebaseUser.getUid()).removeValue();
@@ -140,7 +143,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, CommentActivity.class);
                 intent.putExtra("postid", post.getPostid());
-                intent.putExtra("publisher", post.getPublisher());
+                intent.putExtra("publisherid", post.getPublisher());
                 mContext.startActivity(intent);
             }
         });
@@ -149,7 +152,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, CommentActivity.class);
                 intent.putExtra("postid", post.getPostid());
-                intent.putExtra("publisher", post.getPublisher());
+                intent.putExtra("publisherid", post.getPublisher());
                 mContext.startActivity(intent);
             }
         });
@@ -165,6 +168,16 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
                     FirebaseDatabase.getInstance().getReference().child("Saves").child(firebaseUser.getUid())
                             .child(post.getPostid()).removeValue();
                 }
+            }
+        });
+
+        viewHolder.likes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, FollowersActivity.class);
+                intent.putExtra("id",post.getPostid());
+                intent.putExtra("title","likes");
+                mContext.startActivity(intent);
             }
         });
 
@@ -213,6 +226,18 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
             comments = itemView.findViewById(R.id.postitem_textview_comment);
 
         }
+    }
+
+    private void addNotifications(String userid,String postid){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Notifications").child(userid);
+
+        HashMap<String,Object>hashMap = new HashMap<>();
+        hashMap.put("userid",firebaseUser.getUid());
+        hashMap.put("text","liked your post");
+        hashMap.put("postid",postid);
+        hashMap.put("ispost",true);
+
+        reference.push().setValue(hashMap);
     }
 
     private void isLiked(final String postId, final ImageView imageView) {
