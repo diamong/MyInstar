@@ -9,6 +9,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.bumptech.glide.load.data.DataRewinder;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -71,8 +72,32 @@ public class FollowersActivity extends AppCompatActivity {
             case "followers":
                 getFollowers();
                 break;
+            case "views":
+                getViews();
+                break;
         }
 
+    }
+
+    private void getViews(){
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("story")
+                .child(id).child(getIntent().getStringExtra("storyid")).child("views");
+
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                idList.clear();
+                for (DataSnapshot snapshot:dataSnapshot.getChildren()){
+                    idList.add(snapshot.getKey());
+                }
+                showUsers();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
 
     private void getLikes() {

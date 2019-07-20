@@ -2,12 +2,13 @@ package Model;
 
 public class Comment {
 
-    private String comment,publisher;
+    private String comment,publisher,commentid;
 
 
-    public Comment(String comment, String publisher) {
+    public Comment(String comment, String publisher,String commentid) {
         this.comment = comment;
         this.publisher = publisher;
+        this.commentid = commentid;
     }
 
     public Comment() {
@@ -28,5 +29,13 @@ public class Comment {
 
     public void setPublisher(String publisher) {
         this.publisher = publisher;
+    }
+
+    public String getCommentid() {
+        return commentid;
+    }
+
+    public void setCommentid(String commentid) {
+        this.commentid = commentid;
     }
 }

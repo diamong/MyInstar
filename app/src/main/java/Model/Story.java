@@ -2,7 +2,7 @@ package Model;
 
 public class Story {
 
-    private String imageUrl;
+    private String imageurl;
     private long timestart;
     private long timeend;
     private String storyid;
@@ -13,19 +13,19 @@ public class Story {
     }
 
     public Story(String imageUrl, long timestart, long timeend, String storyid, String userid) {
-        this.imageUrl = imageUrl;
+        this.imageurl = imageUrl;
         this.timestart = timestart;
         this.timeend = timeend;
         this.storyid = storyid;
         this.userid = userid;
     }
 
-    public String getImageUrl() {
-        return imageUrl;
+    public String getImageurl() {
+        return imageurl;
     }
 
-    public void setImageUrl(String imageUrl) {
-        this.imageUrl = imageUrl;
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 
     public long getTimestart() {

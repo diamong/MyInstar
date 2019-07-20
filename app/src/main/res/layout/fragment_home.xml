@@ -23,7 +23,7 @@
                 <ImageView
 
                     android:layout_alignParentStart="true"
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:src="@drawable/login_logo" />
 

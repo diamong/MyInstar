@@ -61,12 +61,16 @@ public class CommentActivity extends AppCompatActivity {
             }
         });
 
+        Intent intent = getIntent();
+        postid = intent.getStringExtra("postid");
+        publisherid = intent.getStringExtra("publisherid");
+
         recyclerView=findViewById(R.id.comment_recyclerview);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(linearLayoutManager);
         commentList = new ArrayList<>();
-        commentAdapter= new CommentAdapter(this,commentList);
+        commentAdapter = new CommentAdapter(this, commentList, postid);
         recyclerView.setAdapter(commentAdapter);
 
         addComment = findViewById(R.id.comment_edittext_addcomment);
@@ -75,9 +79,7 @@ public class CommentActivity extends AppCompatActivity {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
 
-        Intent intent = getIntent();
-        postid = intent.getStringExtra("postid");
-        publisherid = intent.getStringExtra("publisherid");
+
 
         post.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,11 +114,14 @@ public class CommentActivity extends AppCompatActivity {
 
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Comments").child(postid);
 
+        String commentid = reference.push().getKey();
+
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("comment", addComment.getText().toString());
         hashMap.put("publisher", firebaseUser.getUid());
+        hashMap.put("commentid", commentid);
 
-        reference.push().setValue(hashMap);
+        reference.child(commentid).setValue(hashMap);
         addNotifications();
         addComment.setText("");
     }

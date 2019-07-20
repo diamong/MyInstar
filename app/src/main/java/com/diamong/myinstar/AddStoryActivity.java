@@ -80,11 +80,11 @@ public class AddStoryActivity extends AppCompatActivity {
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("story")
                                 .child(myid);
                         String storyid = reference.push().getKey();
-                        long timeend = System.currentTimeMillis() + 864000;
+                        long timeend = System.currentTimeMillis() + 8640000;
 
                         HashMap<String, Object> hashMap = new HashMap<>();
                         hashMap.put("imageurl", myUrl);
-                        hashMap.put("timestart", ServerValue.TIMESTAMP);
+                        hashMap.put("timestart", System.currentTimeMillis());
                         hashMap.put("timeend", timeend);
                         hashMap.put("storyid", storyid);
                         hashMap.put("userid", myid);
