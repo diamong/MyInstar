@@ -18,12 +18,11 @@ import android.widget.LinearLayout;
 import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.diamong.myinstar.CommentActivity;
 import com.diamong.myinstar.FollowersActivity;
-import com.diamong.myinstar.Fragment.PostDetailFragment;
 import com.diamong.myinstar.Fragment.ProfileFragment;
+import com.diamong.myinstar.FullPhotoActivity;
 import com.diamong.myinstar.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -34,10 +33,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.HashMap;
 import java.util.List;
-
 import Model.Post;
 import Model.User;
 
@@ -56,9 +53,7 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         View view = LayoutInflater.from(mContext).inflate(R.layout.post_item, viewGroup, false);
-
         return new PostAdapter.ViewHolder(view);
     }
 
@@ -124,12 +119,17 @@ public class PostAdapter extends RecyclerView.Adapter<PostAdapter.ViewHolder> {
         viewHolder.postImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit();
+                /*SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", Context.MODE_PRIVATE).edit();
                 editor.putString("postid", post.getPostid());
                 editor.apply();
 
                 ((FragmentActivity) mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container
-                        , new PostDetailFragment()).commit();
+                        , new PostDetailFragment()).commit();*/
+
+                Intent intent = new Intent(mContext, FullPhotoActivity.class);
+                intent.putExtra("imageurl",post.getPostimage());
+                mContext.startActivity(intent);
+
             }
         });
 
