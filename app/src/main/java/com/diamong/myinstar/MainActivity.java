@@ -9,10 +9,10 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-import com.diamong.myinstar.Fragment.HomeFragment;
-import com.diamong.myinstar.Fragment.NotificationFragment;
-import com.diamong.myinstar.Fragment.ProfileFragment;
-import com.diamong.myinstar.Fragment.SearchFragment;
+    import com.diamong.myinstar.Fragment.HomeFragment;
+    import com.diamong.myinstar.Fragment.NotificationFragment;
+    import com.diamong.myinstar.Fragment.ProfileFragment;
+    import com.diamong.myinstar.Fragment.SearchFragment;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {

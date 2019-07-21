@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.bumptech.glide.Glide;
 import com.diamong.myinstar.MainActivity;
 import com.diamong.myinstar.R;
@@ -25,9 +24,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.List;
-
 import Model.Comment;
 import Model.User;
 
@@ -36,7 +33,6 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     private Context mContext;
     private List<Comment> mComment;
     private String postid;
-
     private FirebaseUser firebaseUser;
 
     public CommentAdapter(Context mContext, List<Comment> mComment, String postid) {
@@ -48,23 +44,16 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-
         View view = LayoutInflater.from(mContext).inflate(R.layout.comment_item,viewGroup,false);
-
-
-
         return new CommentAdapter.ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder viewHolder, int i) {
-
         firebaseUser= FirebaseAuth.getInstance().getCurrentUser();
         final Comment comment = mComment.get(i);
-
         viewHolder.comment.setText(comment.getComment());
         getUserInfo(viewHolder.imageProfile,viewHolder.nickname,comment.getPublisher());
-
         viewHolder.comment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -99,8 +88,8 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.ViewHold
                     alertDialog.setButton(alertDialog.BUTTON_POSITIVE, "네", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
-                            FirebaseDatabase.getInstance().getReference("Comments")
-                                    .child(postid)
+                            FirebaseDatabase.getInstance().getReference("Posts")
+                                    .child(postid).child("comments")
                                     .child(comment.getCommentid()).removeValue()
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override

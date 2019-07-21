@@ -94,7 +94,7 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CropImage.activity()
                         .setAspectRatio(1, 1)
-                        .setCropShape(CropImageView.CropShape.OVAL)
+                        //.setCropShape(CropImageView.CropShape.OVAL)
                         .start(EditProfileActivity.this);
             }
         });
@@ -104,7 +104,6 @@ public class EditProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 CropImage.activity()
                         .setAspectRatio(1, 1)
-                        .setCropShape(CropImageView.CropShape.OVAL)
                         .start(EditProfileActivity.this);
             }
         });

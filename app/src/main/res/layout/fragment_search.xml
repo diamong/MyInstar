@@ -4,16 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLight"
     tools:context=".Fragment.SearchFragment">
 
     <android.support.design.widget.AppBarLayout
-        android:background="?android:attr/windowBackground"
+        android:background="@color/colorPrimaryLight"
         android:id="@+id/search_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <android.support.v7.widget.Toolbar
-            android:background="?android:attr/windowBackground"
+            android:background="@color/colorPrimaryLight"
             android:id="@+id/search_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">

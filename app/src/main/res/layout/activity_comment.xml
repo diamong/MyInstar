@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/colorPrimaryLight"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
@@ -18,7 +19,7 @@
             android:id="@+id/comment_toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:attr/windowBackground" />
+            android:background="@color/colorPrimaryLight"/>
     </android.support.design.widget.AppBarLayout>
 
 
@@ -66,7 +67,7 @@
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
             android:layout_marginEnd="5dp"
-            android:text="POST"
+            android:text="@string/add_post"
             android:textColor="@color/colorPrimary" />
 
     </RelativeLayout>

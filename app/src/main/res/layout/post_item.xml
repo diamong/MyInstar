@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/colorPrimaryLight"
     android:layout_height="wrap_content">
 
     <de.hdodenhof.circleimageview.CircleImageView
@@ -27,6 +28,7 @@
         app:layout_constraintTop_toTopOf="@+id/postitem_imageview_profile" />
 
     <ImageView
+        android:scaleType="fitCenter"
         android:id="@+id/postitem_imageview"
         android:layout_width="0dp"
         android:layout_height="200dp"

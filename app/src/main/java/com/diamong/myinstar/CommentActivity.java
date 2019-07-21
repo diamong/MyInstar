@@ -52,7 +52,7 @@ public class CommentActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.comment_toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setTitle("Comments");
+        getSupportActionBar().setTitle(R.string.comment);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,7 +103,7 @@ public class CommentActivity extends AppCompatActivity {
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("userid", firebaseUser.getUid());
-        hashMap.put("text", "comments:"+addComment.getText().toString() );
+        hashMap.put("text", getString(R.string.comment)+": " + addComment.getText().toString());
         hashMap.put("postid", postid);
         hashMap.put("ispost", true);
 
@@ -112,7 +112,7 @@ public class CommentActivity extends AppCompatActivity {
 
     private void addCommentMethod() {
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Comments").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts").child(postid).child("comments");
 
         String commentid = reference.push().getKey();
 
@@ -144,7 +144,7 @@ public class CommentActivity extends AppCompatActivity {
     }
 
     private void readComments(){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Comments").child(postid);
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts").child(postid).child("comments");
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
